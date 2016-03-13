@@ -1,23 +1,24 @@
-# from ServerStreamer import ServerStreamer
+from ServerStreamer import ServerStreamer
 
-# server = ServerStreamer()
+server = ServerStreamer()
 
-# # save the first 100 frames in a file
-# server.saveFrames(1)
+# save the first 100 frames in a file
+server.saveFrames(1)
 
-import numpy as np
-import cv2
 
-cap = cv2.VideoCapture('miau2')
+# import numpy as np
+# import cv2
 
-while(cap.isOpened()):
-    ret, frame = cap.read()
+# cap = cv2.VideoCapture('miau2')
 
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+# while(cap.isOpened()):
+#     ret, frame = cap.read()
 
-    cv2.imshow('frame',gray)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+#     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-cap.release()
-cv2.destroyAllWindows()
+#     cv2.imshow('frame',gray)
+#     if cv2.waitKey(1) & 0xFF == ord('q'):
+#         break
+
+# cap.release()
+# cv2.destroyAllWindows()
