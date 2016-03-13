@@ -14,7 +14,7 @@ class ServerStreamer:
 		self.accept()
 
 	def accept(self):
-		print 'Listening for connections on port '+self.port
+		print 'Listening for connections on port ',self.port
 		self.conn, self.addr = self.serv.accept()
 		print 'client connected ... ', self.addr
 	def getRawBytes(self):
