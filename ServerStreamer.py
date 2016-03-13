@@ -2,17 +2,19 @@ import socket
 import numpy as np
 class ServerStreamer:
 	def __init__(self):
-		HOST = ''
+		HOST = '54.153.114.110'
 		PORT = 9876
 		ADDR = (HOST,PORT)
 		self.BUFSIZE = 4096
 		serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		serv.bind(ADDR)
+		self.port = PORT
 		serv.listen(5)
 		self.serv = serv
 		self.accept()
 
 	def accept(self):
+		print 'Listening for connections on port '+self.port
 		self.conn, self.addr = self.serv.accept()
 		print 'client connected ... ', self.addr
 	def getRawBytes(self):

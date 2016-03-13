@@ -3,6 +3,7 @@ from ServerStreamer import ServerStreamer
 server = ServerStreamer()
 
 # save the first 100 frames in a file
+
 server.saveFrames(1)
 
 
