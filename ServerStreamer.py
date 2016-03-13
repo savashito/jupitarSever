@@ -3,7 +3,7 @@ import numpy as np
 class ServerStreamer:
 	def __init__(self):
 		HOST = '' # 54.153.114.110
-		PORT = 9876
+		PORT = 80
 		ADDR = (HOST,PORT)
 		self.BUFSIZE = 4096
 		serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
