@@ -9,7 +9,7 @@ from ServerStreamer import ServerStreamer
 #exit()
 import numpy as np
 import cv2
-
+cv2.namedWindow("frame")
 cap = cv2.VideoCapture('miauTNoLimit.h264')
 print cap.isOpened()
 while(cap.isOpened()):
@@ -17,9 +17,9 @@ while(cap.isOpened()):
 	print frame.shape
 	#gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 	
-#	cv2.imshow('frame',gray)
-#	if cv2.waitKey(1) & 0xFF == ord('q'):
-#		break
+	cv2.imshow('frame',frame)
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+		break
 
 cap.release()
 # cv2.destroyAllWindows()
