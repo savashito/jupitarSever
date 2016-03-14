@@ -12,28 +12,29 @@ class ServerStreamer:
 		self.port = PORT
 		serv.listen(5)
 		self.serv = serv
-		self.accept()
+		
 
 	def accept(self):
-		print 'Listening for connections on port ',self.port
+		#print 'Listening for connections on port ',self.port
 		self.conn, self.addr = self.serv.accept()
-		print 'client connected ... ', self.addr
+		#print 'client connected ... ', self.addr
 	def getRawBytes(self):
-
 		b = bytearray()
 		while True:
 			chunk = self.conn.recv(self.BUFSIZE)
-			print chunk
+			# print chunk
 			if not chunk: break
 			# msgparts.append(chunk)
 			b.extend(chunk)
 		return b
 	def saveFrames(self,nFrames):
-		fOut = open("miau2", 'wb')
+		fOut = open("miauTNoLimit.h264", 'wb')
 		for i in range(nFrames):
-			# self.accept()
+			self.accept()
 			bytes = self.getRawBytes()
 			print "Recieved %d bytes"%len(bytes)
+			if len(bytes)<3:
+				continue
 			fOut.write(bytes)
 			print "%d %d %d %d "%(bytes[0],bytes[1],bytes[2],bytes[3])
 			# fOut.write(b'\0\0\0\1' + bytes)
