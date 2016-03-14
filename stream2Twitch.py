@@ -27,6 +27,7 @@ with TwitchBufferedOutputStream(
 		fps=30.,
 		enable_audio=True,
 		verbose=False) as videostream:
+	frames = []
 	while vc.isOpened():#True:
 		'''
 		server.accept()
@@ -42,16 +43,22 @@ with TwitchBufferedOutputStream(
 
 		'''
 		rval, frame = vc.read()
+		if(frame == None):
+			break
 		#floatlist = frame.ravel()
 		#floatlist.shape = (720, 1280, 3)
 		floatlist = frame/255.0
+		frames.append(floatlist)
 		#cv2.imshow("preview", floatlist)
 		#key = cv2.waitKey(20)
-		print "Sending frame "+str(floatlist.shape)
-		if videostream.get_video_frame_buffer_state() < 30:
-			videostream.send_video_frame(floatlist)
-		else:
-			time.sleep(1)
+	while True:	
+		for i in range (len(frames)):
+			floatlist = frames[1]
+			print "Sending frame "+str(floatlist.shape)
+			if videostream.get_video_frame_buffer_state() < 30:
+				videostream.send_video_frame(floatlist)
+			else:
+				time.sleep(1)
 			#print "Sent frame "+str(frame.shape)
 		
 
