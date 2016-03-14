@@ -4,11 +4,11 @@ server = ServerStreamer()
 
 # save the first 100 frames in a file
 
-server.saveFrames(1)
+server.saveFrames(110)
 
 
-# import numpy as np
-# import cv2
+import numpy as np
+import cv2
 
 # cap = cv2.VideoCapture('miau2')
 
